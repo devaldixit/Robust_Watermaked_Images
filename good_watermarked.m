@@ -1,27 +1,43 @@
+% Project Title : Watermarking Images In Wavelet Domain Using MATLAB 
+% Author : Deval Dixit
+% University : Carleton University
+% Course : Multiresolution and Signal Decomposition
+
+
+
 % Load Cover/Host Image
 I=imread('lena.png');
+
 % Resize cover image
 I=imresize(I,[512 512]);
+
 % Convert to gray 
 I=rgb2gray(I);
 I=im2double(I);
+
 %Display Cover image
 figure(1); imshow(I);
 title('host image');
-% Load LOGO to be watermarked
+
+% Load LOGO to be watermarked (NOTE: You can use any other image/text of your choice)
 ax=imread('carletonlogo.jpg');
+
 % Convert to gray
 ax=rgb2gray(ax);
+
 % Resize Logo
 ax=imresize(ax,[512 512]);
 ax=im2double(ax);
+
 % Display Logo
 figure(2); imshow(ax);
 title('Carleton logo');
+
 % 3-Level DWT of original image
 [ca1,ch1,cv1,cd1]=dwt2(I,'haar');
 [ca2,ch2,cv2,cd2]=dwt2(ca1,'haar');
 [ca3,ch3,cv3,cd3]=dwt2(ca2,'haar');
+
 % 3-Level DWT of LOGO
 [lca1,lch1,lcv1,lcd1]=dwt2(ax,'haar');
 [lca2,lch2,lcv2,lcd2]=dwt2(lca1,'haar');
@@ -130,13 +146,4 @@ C=corr2( extracted_logo , ax )
 
 %structural similarity SSIM
 ssimval = ssim( extracted_logo , ax ) 
-
-
-
-
-
-
-
-
-
 
