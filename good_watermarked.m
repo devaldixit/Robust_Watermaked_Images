@@ -43,7 +43,9 @@ title('Carleton logo');
 [lca2,lch2,lcv2,lcd2]=dwt2(lca1,'haar');
 [lca3,lch3,lcv3,lcd3]=dwt2(lca2,'haar');
 
-%Scaling Factor a
+%Scaling Factor a 
+%Hint: Try with different scaling factor values (ex: 0.5,0.1,0.03,0.05)
+%Lower the value to make watermark less visible.
 a=0.3;
 
 % Embedding Algorithm
